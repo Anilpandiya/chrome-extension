@@ -12,3 +12,106 @@
   background: #0D1119;
   border-radius: 10px;
 }
+
+img {
+  width: 30px;
+  height: 30px;
+  border-radius: 3px;
+}
+
+.dish-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px;
+
+  width: 417px;
+  height: 24px;
+
+  flex: none;
+  align-self: stretch;
+  flex-grow: 0;
+}
+
+.dish-name {
+  width: 110px;
+  height: 17px;
+
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  margin-right: 145px;
+  color: #FFFFFF;
+
+}
+
+.social-share {
+  display: flex;
+}
+
+a {
+  margin-right: 5px;
+  padding: 7px;
+  gap: 5px;
+
+  width: 7px;
+  height: 7px;
+
+  /* Neutral/60 */
+
+  background: #454A5F;
+  border-radius: 30px;
+  position: relative;
+}
+
+.icon {
+  color: white;
+  font-size: 8px;
+  position: absolute;
+  left: 30.5%;
+}
+
+.dish-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 10px 10px;
+  gap: 16px;
+  margin-left: 12px;
+  margin-top: 16px;
+
+  width: 366px;
+  height: 244px;
+
+  /* Teal / 60 */
+
+  background: #17CFC4;
+  /* Box Shadows/Light/Medium */
+
+  box-shadow: 0px 10px 30px 3px rgba(5, 16, 55, 0.15);
+  border-radius: 6px;
+
+  /* Inside auto layout */
+
+  flex: none;
+  order: 0;
+  flex-grow: 1;
+
+  .card-header {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    /* padding: 10px; */
+    gap: 10px;
+  }
+
+  .difficulty {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 24px;
+    color: #0D1119;
+  }
+}
+

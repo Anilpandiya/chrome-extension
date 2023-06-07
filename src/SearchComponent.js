@@ -39,7 +39,8 @@ const SearchComponent = ({ onDishChange, dishOptions }) => {
   return (
     <div className="search-container">
       <div className="search-input-container">
-        <FaSearch className="search-icon" />
+        {/* <FaSearch className="search-icon" /> */}
+        <img src={`/static/images/vector.png`} className="search-icon" />
         <input
           type="text"
           className='search-input'

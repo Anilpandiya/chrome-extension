@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     document.body.appendChild(app);
   
     const script = document.createElement('script');
-    script.src = chrome.runtime.getURL('static/js/main.js');
+    // script.src = chrome.runtime.getURL('static/js/main.js');
     document.head.appendChild(script);
   });
   
