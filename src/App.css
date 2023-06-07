@@ -6,11 +6,13 @@
   gap: 24px;
 
   position: relative;
-  width: 410px;
+  width: 362px;
   height: 686px;
 
   background: #0D1119;
   border-radius: 10px;
+
+  overflow: hidden;
 }
 
 img {
@@ -25,7 +27,7 @@ img {
   align-items: center;
   padding: 0px;
 
-  width: 417px;
+  width: 369px;
   height: 24px;
 
   flex: none;
@@ -41,28 +43,26 @@ img {
   font-weight: 500;
   font-size: 14px;
   line-height: 17px;
-  margin-right: 145px;
+  margin-right: 100px;
   color: #FFFFFF;
 
 }
 
 .social-share {
   display: flex;
-}
 
-a {
-  margin-right: 5px;
-  padding: 7px;
-  gap: 5px;
+  & a {
+    margin-right: 5px;
+    padding: 7px;
+    gap: 5px;
 
-  width: 7px;
-  height: 7px;
+    width: 7px;
+    height: 7px;
 
-  /* Neutral/60 */
-
-  background: #454A5F;
-  border-radius: 30px;
-  position: relative;
+    background: #454A5F;
+    border-radius: 30px;
+    position: relative;
+  }
 }
 
 .icon {
@@ -76,27 +76,20 @@ a {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding: 10px 10px;
-  gap: 16px;
+  padding: 15px 20px 20px;
   margin-left: 12px;
   margin-top: 16px;
 
-  width: 366px;
-  height: 244px;
+  width: 298px;
+  min-height: 228px;
 
-  /* Teal / 60 */
-
-  background: #17CFC4;
-  /* Box Shadows/Light/Medium */
-
-  box-shadow: 0px 10px 30px 3px rgba(5, 16, 55, 0.15);
   border-radius: 6px;
 
-  /* Inside auto layout */
+}
 
-  flex: none;
-  order: 0;
-  flex-grow: 1;
+.dish-card-1 {
+
+  background: #17CFC4;
 
   .card-header {
     display: flex;
@@ -113,5 +106,75 @@ a {
     line-height: 24px;
     color: #0D1119;
   }
+
+  & p {
+    line-height: 24px;
+  }
+
+  & a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 292px;
+    height: 40px;
+    background: #1D2A43;
+    border-radius: 6px;
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+  }
 }
 
+.dish-card-2 {
+  background: #131823;
+  min-height: 220px;
+
+  .card-body {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .info-row {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 50%;
+    margin-bottom: 16px;
+  }
+
+  .info-label {
+
+    width: 49px;
+    height: 24px;
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 24px;
+    color: #7185AA;
+  }
+
+  .info-value {
+    height: 20px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  .txt-wht {
+    color: #FFFFFF;
+  }
+
+  .grd1 {
+    background: linear-gradient(136.39deg, #2BF1E5 3.18%, #40E33D 102.04%);
+  }
+  .grd2 {
+    background: linear-gradient(136.39deg, #FFBF43 3.18%, #FF4869 102.04%);
+  }
+
+  .txt-grd {
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
