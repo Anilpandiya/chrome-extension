@@ -1,23 +1,25 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import SearchComponent from './SearchComponent';
+
 import './App.css';
 
+const dishOptions = ['Paella', 'Dish 1', 'Dish 2'];
+
 function App() {
+  const [activeDish, setActiveDish] = useState(dishOptions[0]);
+
+  const handleDishChange = (dish) => {
+    console.log('dish', dish)
+    setActiveDish(dish);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <SearchComponent
+        onDishChange={handleDishChange}
+        dishOptions={dishOptions}
+      />
+      <p>Active Dish: {activeDish}</p>
     </div>
   );
 }
