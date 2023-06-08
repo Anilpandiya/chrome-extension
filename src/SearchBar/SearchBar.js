@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-import { FaSearch } from 'react-icons/fa';
 
 import './Search.css';
 
-const SearchComponent = ({ onDishChange, dishOptions }) => {
+const SearchBar = ({ onDishChange, dishOptions }) => {
   const [searchText, setSearchText] = useState('');
   const [showDropdown, setShowDropdown] = useState(false);
   const [filteredOptions, setFilteredOptions] = useState(dishOptions);
@@ -39,7 +38,6 @@ const SearchComponent = ({ onDishChange, dishOptions }) => {
   return (
     <div className="search-container">
       <div className="search-input-container">
-        {/* <FaSearch className="search-icon" /> */}
         <img src={`/static/images/vector.png`} className="search-icon" />
         <input
           type="text"
@@ -69,4 +67,4 @@ const SearchComponent = ({ onDishChange, dishOptions }) => {
   );
 };
 
-export default SearchComponent;
+export default SearchBar;

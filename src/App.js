@@ -1,62 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { FaTwitter, FaTelegramPlane, FaMediumM, FaMailBulk } from 'react-icons/fa';
 
-import SearchComponent from './SearchComponent';
+import SearchBar from './SearchBar/SearchBar';
+import DishInfo from './DishInfo/DishInfo';
+import DishIngredients from './DishIngredients/DishIngredients';
+
+import { dishOptions, dishInfo } from './utils/dummyData';
 
 import './App.css';
-
-const dishOptions = ['Spanish Paella', 'Pizza', 'Sushi'];
-
-const dishInfo = [
-  {
-    name: 'Spanish Paella',
-    flag: 'spain',
-    difficulty: 'Medium',
-    description: 'Spanish paella is a traditional rice dish that originated in the Valencia region of Spain. It was originally made with ingredients such as saffron, rabbit, and snails, which were common in the area.',
-    recipeUrl: 'https://github.com/',
-    seafood: 'Jumbo Shrimp',
-    produce: 'Onion / Tomatoes',
-    spices: 'Bay Leaf / Saffron',
-    oliveOil: 'Spanish Olive Oil',
-    volume: '700',
-    serves: '4',
-    authenticity: 'Unverified',
-    stock: 'Chicken',
-    imgUrl: 'paella'
-  },
-  {
-    name: 'Pizza',
-    flag: 'italy',
-    difficulty: 'Easy',
-    description: 'Pizza is a savory dish of Italian origin, consisting of a round, flattened base of dough topped with various ingredients such as tomato sauce, cheese, and toppings like vegetables, meats, or seafood.',
-    recipeUrl: 'https://github.com/',
-    seafood: 'None',
-    produce: 'Tomatoes / Basil',
-    spices: 'Oregano / Garlic',
-    oliveOil: 'Extra Virgin Olive Oil',
-    volume: '500',
-    serves: '2-3',
-    authenticity: 'Authentic',
-    stock: 'Bread',
-    imgUrl: 'pizza'
-  },
-  {
-    name: 'Sushi',
-    flag: 'japan',
-    difficulty: 'Hard',
-    description: 'Sushi is a traditional Japanese dish consisting of vinegared rice accompanied by various ingredients such as seafood, vegetables, and occasionally tropical fruits. It is often served with soy sauce, wasabi, and pickled ginger.',
-    recipeUrl: 'https://github.com/',
-    seafood: 'Fish / Shellfish',
-    produce: 'Cucumber',
-    spices: 'Wasabi / SoySauce',
-    oliveOil: 'None',
-    volume: '600',
-    serves: '3-4',
-    authenticity: 'Authentic',
-    stock: 'Rice',
-    imgUrl: 'sushi'
-  }
-]
 
 function App() {
   const [activeDish, setActiveDish] = useState(dishOptions[0]);
@@ -70,78 +20,16 @@ function App() {
     setActiveDishInfo(dishInfo.filter(item => item?.name === activeDish)[0]), [activeDish]
   );
 
-  const getSubGradient = (str, id) => <><span>{str[0]} / </span> <span className={`txt-grd ${id === 'produce' ? 'sub-grd' : 'grd2'}`}>{str[1]}</span></>
-
   return (
     <div className="app">
-      <SearchComponent
+      <SearchBar
         onDishChange={handleDishChange}
         dishOptions={dishOptions}
       />
-      <div className="dish-info">
-        <img src={`/static/images/${activeDishInfo.flag}.png`} alt={activeDishInfo.flag} />
-        <h2 className='dish-name'>{activeDishInfo.name}</h2>
-        <div className="social-share">
-          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-            <FaTwitter className='icon' />
-          </a>
-          <a href="https://telegram.org" target="_blank" rel="noopener noreferrer">
-            <FaTelegramPlane className='icon' />
-          </a>
-          <a href="https://medium.com" target="_blank" rel="noopener noreferrer">
-            <FaMediumM className='icon' />
-          </a>
-          <a href="mailto:example@example.com">
-            <FaMailBulk className='icon' />
-          </a>
-        </div>
-      </div>
-      <div className="dish-card dish-card-1">
-        <div className="card-header">
-          <img src={`/static/images/${activeDishInfo.imgUrl}.png`} alt={'paella'} />
-          <div className="difficulty">Difficulty: {activeDishInfo.difficulty}</div>
-        </div>
-        <div className="card-body">
-          <p>{activeDishInfo.description}</p>
-          <a href={activeDishInfo.recipeUrl} target="_blank" rel="noopener noreferrer">View Full Recipe</a>
-        </div>
-      </div>
-      <div className="dish-card dish-card-2">
-        <div className="card-body">
-          <div className="info-row">
-            <div className="info-label">Seafood</div>
-            <div className="info-value txt-wht">{activeDishInfo.seafood}</div>
-          </div>
-          <div className="info-row">
-            <div className="info-label">Produce</div>
-            <div className="info-value txt-grd grd1">{activeDishInfo.produce.includes('/') ? getSubGradient(activeDishInfo.produce.split('/'), 'produce') : activeDishInfo.produce}</div>
-          </div>
-          <div className="info-row">
-            <div className="info-label">Spices</div>
-            <div className="info-value txt-grd grd1">{activeDishInfo.spices.includes('/') ? getSubGradient(activeDishInfo.spices.split('/'), 'spices') : activeDishInfo.spices}</div>
-          </div>
-          <div className="info-row">
-            <div className="info-label">Olive Oil</div>
-            <div className="info-value txt-grd grd2">{activeDishInfo.oliveOil}</div>
-          </div>
-          <div className="info-row">
-            <div className="info-label">Volume/Weight</div>
-            <div className="info-value txt-wht">{activeDishInfo.volume} ml</div>
-          </div>
-          <div className="info-row">
-            <div className="info-label">Serves</div>
-            <div className="info-value txt-wht">{activeDishInfo.serves}</div>
-          </div>
-          <div className="info-row">
-            <div className="info-label">Authenticity</div>
-            <div className="info-value txt-grd grd2">{activeDishInfo.authenticity}</div>
-          </div>
-          <div className="info-row">
-            <div className="info-label">Stock</div>
-            <div className="info-value txt-grd grd2">{activeDishInfo.stock}</div>
-          </div>
-        </div>
-      </div>
+
+      <DishInfo activeDishInfo={activeDishInfo} />
+
+      <DishIngredients activeDishInfo={activeDishInfo} />
     </div>
   );
 }
