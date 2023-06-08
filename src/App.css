@@ -7,7 +7,7 @@
 
   position: relative;
   width: 362px;
-  height: 686px;
+  min-height: 686px;
 
   background: #0D1119;
   border-radius: 10px;

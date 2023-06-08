@@ -1,5 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Helvetica+Neue&display=swap');
 
+body {
+  overflow-y: hidden;
+  overflow-x: hidden;
+  margin: 0px;
+  font-size: 100%;
+}
+
 html {
   font-family: 'Helvetica Neue';
 }
