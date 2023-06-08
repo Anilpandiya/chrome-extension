@@ -21,7 +21,8 @@ const dishInfo = [
     volume: '700',
     serves: '4',
     authenticity: 'Unverified',
-    stock: 'chicken'
+    stock: 'Chicken',
+    imgUrl: 'paella'
   },
   {
     name: 'Pizza',
@@ -31,12 +32,13 @@ const dishInfo = [
     recipeUrl: 'https://github.com/',
     seafood: 'None',
     produce: 'Tomatoes / Basil',
-    spices: 'Oregano / Garlic Powder',
+    spices: 'Oregano / Garlic',
     oliveOil: 'Extra Virgin Olive Oil',
     volume: '500',
     serves: '2-3',
     authenticity: 'Authentic',
-    stock: 'Bread'
+    stock: 'Bread',
+    imgUrl: 'pizza'
   },
   {
     name: 'Sushi',
@@ -51,7 +53,8 @@ const dishInfo = [
     volume: '600',
     serves: '3-4',
     authenticity: 'Authentic',
-    stock: 'Rice'
+    stock: 'Rice',
+    imgUrl: 'sushi'
   }
 ]
 
@@ -66,6 +69,8 @@ function App() {
   useEffect(() =>
     setActiveDishInfo(dishInfo.filter(item => item?.name === activeDish)[0]), [activeDish]
   );
+
+  const getSubGradient = (str, id) => <><span>{str[0]} / </span> <span className={`txt-grd ${id === 'produce' ? 'sub-grd' : 'grd2'}`}>{str[1]}</span></>
 
   return (
     <div className="app">
@@ -93,7 +98,7 @@ function App() {
       </div>
       <div className="dish-card dish-card-1">
         <div className="card-header">
-          <img src={`/static/images/paella.png`} alt={'paella'} />
+          <img src={`/static/images/${activeDishInfo.imgUrl}.png`} alt={'paella'} />
           <div className="difficulty">Difficulty: {activeDishInfo.difficulty}</div>
         </div>
         <div className="card-body">
@@ -109,11 +114,11 @@ function App() {
           </div>
           <div className="info-row">
             <div className="info-label">Produce</div>
-            <div className="info-value txt-grd grd1">{activeDishInfo.produce}</div>
+            <div className="info-value txt-grd grd1">{activeDishInfo.produce.includes('/') ? getSubGradient(activeDishInfo.produce.split('/'), 'produce') : activeDishInfo.produce}</div>
           </div>
           <div className="info-row">
             <div className="info-label">Spices</div>
-            <div className="info-value txt-grd grd1">{activeDishInfo.spices}</div>
+            <div className="info-value txt-grd grd1">{activeDishInfo.spices.includes('/') ? getSubGradient(activeDishInfo.spices.split('/'), 'spices') : activeDishInfo.spices}</div>
           </div>
           <div className="info-row">
             <div className="info-label">Olive Oil</div>

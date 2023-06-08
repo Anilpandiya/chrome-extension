@@ -26,6 +26,7 @@ img {
   justify-content: space-between;
   align-items: center;
   padding: 0px;
+  margin-bottom: 16px;
 
   width: 369px;
   height: 24px;
@@ -41,7 +42,7 @@ img {
 
   font-style: normal;
   font-weight: 500;
-  font-size: 14px;
+  font-size: 15px;
   line-height: 17px;
   margin-right: 100px;
   color: #FFFFFF;
@@ -59,7 +60,7 @@ img {
     width: 7px;
     height: 7px;
 
-    background: #454A5F;
+    background: #171F2F;
     border-radius: 30px;
     position: relative;
   }
@@ -78,11 +79,7 @@ img {
   align-items: flex-start;
   padding: 15px 20px 20px;
   margin-left: 12px;
-  margin-top: 16px;
-
   width: 298px;
-  min-height: 228px;
-
   border-radius: 6px;
 
 }
@@ -94,8 +91,7 @@ img {
   .card-header {
     display: flex;
     flex-direction: row;
-    align-items: flex-start;
-    /* padding: 10px; */
+    align-items: center;
     gap: 10px;
   }
 
@@ -172,6 +168,9 @@ img {
     background: linear-gradient(136.39deg, #FFBF43 3.18%, #FF4869 102.04%);
   }
 
+  .sub-grd {
+    background: #FB2047;
+  }
   .txt-grd {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
