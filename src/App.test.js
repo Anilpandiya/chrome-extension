@@ -1,8 +1,23 @@
-import { render, screen } from '@testing-library/react';
+import React from 'react';
+import { render, getByLabelText } from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+describe('App', () => {
+  test('renders the SearchBar component', () => {
+    const { container } = render(<App />);
+    const searchContainer = container.querySelector('.search-container');
+    expect(searchContainer).toBeInTheDocument();
+  });
+
+  test('renders the DishInfo component', () => {
+    const { container } = render(<App />);
+    const dishInfoElement = container.querySelector('.dish-info');
+    expect(dishInfoElement).toBeInTheDocument();
+  });
+
+  test('renders the DishIngredients component', () => {
+    const { container } = render(<App />);
+    const dishIngredientsElement = container.querySelector('.dish-card');
+    expect(dishIngredientsElement).toBeInTheDocument();
+  });
 });
