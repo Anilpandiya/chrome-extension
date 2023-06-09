@@ -8,7 +8,6 @@ const SearchBar = ({ onDishChange, dishOptions }) => {
   const [filteredOptions, setFilteredOptions] = useState(dishOptions);
 
   const handleDishSelection = (dish) => {
-    console.log('search dish', dish)
     onDishChange(dish);
     setSearchText(dish);
     setShowDropdown(false);

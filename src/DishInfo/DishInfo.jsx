@@ -4,10 +4,18 @@ import { FaTwitter, FaTelegramPlane, FaMediumM, FaMailBulk } from 'react-icons/f
 import './DishInfo.css';
 
 const DishInfo = ({ activeDishInfo }) => {
+    // const defaultRecipeUrl = 'https://anilpandiya.github.io/';
+    const flags = ['italy', 'japan', 'spain'];
+    const dishes = ['pizza', 'sushi', 'paella'];
+
+    const randomIndex = Math.floor(Math.random() * flags.length);
+    const flagImg = flags[randomIndex];
+    const dishesImg = dishes[randomIndex];
+
     return (
         <>
             <div className="dish-info">
-                <img src={`/static/images/${activeDishInfo.flag}.png`} alt={activeDishInfo.flag} />
+                <img src={activeDishInfo?.flag || `/static/images/${flagImg}.png`} alt={'flagImage'} />
                 <h2 className='dish-name'>{activeDishInfo.name}</h2>
                 <div className="social-share">
                     <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
@@ -26,12 +34,12 @@ const DishInfo = ({ activeDishInfo }) => {
             </div>
             <div className="dish-card dish-card-1">
                 <div className="card-header">
-                    <img src={`/static/images/${activeDishInfo.imgUrl}.png`} alt={'paella'} />
+                    <img src={activeDishInfo?.imgUrl || `/static/images/${dishesImg}.png`} alt={'dishImage'} />
                     <div className="difficulty">Difficulty: {activeDishInfo.difficulty}</div>
                 </div>
                 <div className="card-body">
                     <p>{activeDishInfo.description}</p>
-                    <a href={activeDishInfo.recipeUrl} target="_blank" rel="noopener noreferrer">View Full Recipe</a>
+                    {/* <a href={activeDishInfo?.recipeUrl || defaultRecipeUrl } target="_blank" rel="noopener noreferrer">View Full Recipe</a> */}
                 </div>
             </div>
         </>

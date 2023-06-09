@@ -16,11 +16,11 @@ const DishIngredients = ({ activeDishInfo }) => {
                 </div>
                 <div className="info-row">
                     <div className="info-label">Produce</div>
-                    <div className="info-value txt-grd grd1">{activeDishInfo.produce.includes('/') ? getSubGradient(activeDishInfo.produce.split('/'), 'produce') : activeDishInfo.produce}</div>
+                    <div className="info-value txt-grd grd1">{activeDishInfo?.produce?.includes(',') ? getSubGradient(activeDishInfo.produce.split(','), 'produce') : activeDishInfo.produce}</div>
                 </div>
                 <div className="info-row">
                     <div className="info-label">Spices</div>
-                    <div className="info-value txt-grd grd1">{activeDishInfo.spices.includes('/') ? getSubGradient(activeDishInfo.spices.split('/'), 'spices') : activeDishInfo.spices}</div>
+                    <div className="info-value txt-grd grd1">{activeDishInfo?.spice?.includes(',') ? getSubGradient(activeDishInfo.spice.split(','), 'spices') : activeDishInfo.spice}</div>
                 </div>
                 <div className="info-row">
                     <div className="info-label">Olive Oil</div>

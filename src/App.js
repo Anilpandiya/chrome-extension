@@ -1,30 +1,60 @@
 import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 
 import SearchBar from './SearchBar/SearchBar';
 import DishInfo from './DishInfo/DishInfo';
 import DishIngredients from './DishIngredients/DishIngredients';
 
-import { dishOptions, dishInfo } from './utils/dummyData';
+// import { dishOptions, dishInfo } from './utils/dummyData';
 
 import './App.css';
 
-function App() {
-  const [activeDish, setActiveDish] = useState(dishOptions[0]);
-  const [activeDishInfo, setActiveDishInfo] = useState(dishInfo[0]);
+import { API_BASE_URL, getRecipeById } from './utils/apiHelper';
 
-  const handleDishChange = (dish) => {
+function App() {
+  const [activeDish, setActiveDish] = useState('');
+  const [activeDishInfo, setActiveDishInfo] = useState({});
+
+  const [allDishes, setAllDishes] = useState([]);
+
+  const handleDishChange = async (dish) => {
     setActiveDish(dish);
+
+    try {
+      const dishIndex = allDishes.map(item => item?.name).findIndex(name => name === dish);
+
+      const recipe = await getRecipeById(dishIndex);
+      activeDish && setActiveDishInfo(recipe);
+    } catch (error) {
+      // Handle error
+      console.error('Error fetching recipe details:', error);
+    }
   };
 
-  useEffect(() =>
-    setActiveDishInfo(dishInfo.filter(item => item?.name === activeDish)[0]), [activeDish]
-  );
+  useEffect(() => {
+    const fetchRecipes = async () => {
+      try {
+        const response = await axios.get(API_BASE_URL);
+        const recipes = response?.data?.message;
+        if (recipes.length > 0) {
+          setActiveDish(recipes[2].name);
+          setActiveDishInfo(recipes[2]);
+          setAllDishes(recipes);
+        }
+      } catch (error) {
+        // Handle error
+        console.error('Error fetching recipes:', error);
+      }
+    };
+
+    fetchRecipes();
+  }, []);
 
   return (
     <div className="app">
       <SearchBar
         onDishChange={handleDishChange}
-        dishOptions={dishOptions}
+        dishOptions={allDishes.map(item => item.name)}
       />
 
       <DishInfo activeDishInfo={activeDishInfo} />
