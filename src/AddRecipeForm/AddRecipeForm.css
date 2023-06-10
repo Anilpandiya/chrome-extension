@@ -126,3 +126,32 @@
 .submit-button:hover {
     background: linear-gradient(136.39deg, #FFBF43 3.18%, #FF4869 102.04%);
 }
+
+.unit {
+    position: relative;
+}
+.input-unit {
+    position: absolute;
+    top: 66%;
+    right: 42px;
+    color: #b9bcde;
+    transform: translateY(-50%);
+    font-style: normal;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 24px;
+    text-align: right;
+}
+
+.input-unit-2 {
+    position: absolute;
+    bottom: 20%;
+    left: 35%;
+    color: #b9bcde;
+    transform: translateY(-50%);
+    font-style: normal;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 24px;
+    text-align: right;
+}

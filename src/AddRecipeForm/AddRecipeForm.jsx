@@ -171,8 +171,9 @@ const AddRecipeForm = ({ updateDishes }) => {
                             name="volume"
                             value={recipeData.volume}
                             onChange={handleInputChange}
-                            className="form-input"
+                            className="form-input unit"
                         />
+                         <span className="input-unit">grams</span>
                     </div>
                 </div>
                 <div className="row">
@@ -185,6 +186,7 @@ const AddRecipeForm = ({ updateDishes }) => {
                             onChange={handleInputChange}
                             className="form-input"
                         />
+                        <span className="input-unit-2">people</span>
                     </div>
                     <div className="form-group">
                         <label className="form-label">Authenticity</label>
