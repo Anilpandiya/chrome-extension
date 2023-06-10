@@ -33,22 +33,22 @@ function App() {
     }
   };
 
-  useEffect(() => {
-    const fetchRecipes = async () => {
-      try {
-        const response = await axios.get(API_BASE_URL);
-        const recipes = response?.data?.message;
-        if (recipes.length > 0) {
-          setActiveDish(recipes[2].name);
-          setActiveDishInfo(recipes[2]);
-          setAllDishes(recipes);
-        }
-      } catch (error) {
-        // Handle error
-        console.error('Error fetching recipes:', error);
+  const fetchRecipes = async () => {
+    try {
+      const response = await axios.get(API_BASE_URL);
+      const recipes = response?.data?.message;
+      if (recipes.length > 0) {
+        setActiveDish(recipes[2].name);
+        setActiveDishInfo(recipes[2]);
+        setAllDishes(recipes);
       }
-    };
+    } catch (error) {
+      // Handle error
+      console.error('Error fetching recipes:', error);
+    }
+  };
 
+  useEffect(() => {
     fetchRecipes();
   }, []);
 
@@ -56,7 +56,7 @@ function App() {
     <Router>
       <div className="app">
         <Routes>
-          <Route path="/add-recipe" element={<AddRecipeForm />} />
+          <Route path="/add-recipe" element={<AddRecipeForm updateDishes={fetchRecipes} />} />
 
           <Route path="/" element={<>
             <SearchBar
