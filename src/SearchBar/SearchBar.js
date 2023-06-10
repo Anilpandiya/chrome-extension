@@ -37,7 +37,7 @@ const SearchBar = ({ onDishChange, dishOptions }) => {
   return (
     <div className="search-container">
       <div className="search-input-container">
-        <img src={`/static/images/vector.png`} className="search-icon" />
+        <img src={`/static/images/vector.png`} className="search-icon" alt="txt" />
         <input
           type="text"
           className='search-input'

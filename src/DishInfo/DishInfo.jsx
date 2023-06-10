@@ -1,5 +1,7 @@
 import React from 'react';
-import { FaTwitter, FaTelegramPlane, FaMediumM, FaMailBulk } from 'react-icons/fa';
+import { FaTwitter, FaTelegramPlane, FaMediumM } from 'react-icons/fa';
+
+import { Link } from 'react-router-dom';
 
 import './DishInfo.css';
 
@@ -27,9 +29,9 @@ const DishInfo = ({ activeDishInfo }) => {
                     <a href="https://medium.com" target="_blank" rel="noopener noreferrer">
                         <FaMediumM className='icon' />
                     </a>
-                    <a href="mailto:example@example.com" className='add-btn'>
+                    <Link to="/add-recipe" className="add-btn">
                         + Add recipe
-                    </a>
+                    </Link>
                 </div>
             </div>
             <div className="dish-card dish-card-1">

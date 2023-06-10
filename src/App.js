@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import SearchBar from './SearchBar/SearchBar';
 import DishInfo from './DishInfo/DishInfo';
@@ -10,6 +11,7 @@ import DishIngredients from './DishIngredients/DishIngredients';
 import './App.css';
 
 import { API_BASE_URL, getRecipeById } from './utils/apiHelper';
+import AddRecipeForm from './AddRecipeForm/AddRecipeForm';
 
 function App() {
   const [activeDish, setActiveDish] = useState('');
@@ -51,16 +53,25 @@ function App() {
   }, []);
 
   return (
-    <div className="app">
-      <SearchBar
-        onDishChange={handleDishChange}
-        dishOptions={allDishes.map(item => item.name)}
-      />
+    <Router>
+      <div className="app">
+        <Routes>
+          <Route path="/add-recipe" element={<AddRecipeForm />} />
 
-      <DishInfo activeDishInfo={activeDishInfo} />
+          <Route path="/" element={<>
+            <SearchBar
+              onDishChange={handleDishChange}
+              dishOptions={allDishes.map((item) => item.name)}
+            />
 
-      <DishIngredients activeDishInfo={activeDishInfo} />
-    </div>
+            <DishInfo activeDishInfo={activeDishInfo} />
+
+            <DishIngredients activeDishInfo={activeDishInfo} />
+          </>} />
+
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
