@@ -27,8 +27,8 @@ const DishInfo = ({ activeDishInfo }) => {
                     <a href="https://medium.com" target="_blank" rel="noopener noreferrer">
                         <FaMediumM className='icon' />
                     </a>
-                    <a href="mailto:example@example.com">
-                        <FaMailBulk className='icon' />
+                    <a href="mailto:example@example.com" className='add-btn'>
+                        + Add recipe
                     </a>
                 </div>
             </div>

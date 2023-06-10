@@ -21,14 +21,13 @@
     font-weight: 500;
     font-size: 15px;
     line-height: 17px;
-    margin-right: 100px;
     color: #FFFFFF;
 
 }
 
 .social-share {
     display: flex;
-
+    align-items: center;
     & a {
         margin-right: 5px;
         padding: 7px;
@@ -40,6 +39,21 @@
         background: #171F2F;
         border-radius: 30px;
         position: relative;
+    }
+
+    .add-btn {
+        width: 75px;
+        height: 24px;
+
+        font-style: normal;
+        font-weight: 400;
+        font-size: 13px;
+        line-height: 24px;
+        color: #FFFFFF;
+        text-decoration: none;
+
+        background: #171F2F;
+        border-radius: 4px;
     }
 }
 

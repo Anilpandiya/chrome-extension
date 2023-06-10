@@ -5,12 +5,14 @@
   "icons": {
     "16": "favicon.ico",
     "48": "logo192.png",
-   "128": "logo512.png"
+    "128": "logo512.png"
   },
-  "permissions": [],
+  "permissions": [
+    "https://master-7rqtwti-yj2le3kr2yhmu.uk-1.platformsh.site/*"
+  ],
   "description": "Get to know about the dishes you love the most!",
   "action": {
-      "default_popup": "index.html",
-      "default_title": "Diffusion Labs"
+    "default_popup": "index.html",
+    "default_title": "Diffusion Labs"
   }
 }
