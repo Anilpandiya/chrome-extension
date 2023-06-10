@@ -130,28 +130,30 @@
 .unit {
     position: relative;
 }
+
 .input-unit {
     position: absolute;
-    top: 66%;
-    right: 42px;
     color: #b9bcde;
     transform: translateY(-50%);
     font-style: normal;
     font-weight: 300;
     font-size: 14px;
     line-height: 24px;
-    text-align: right;
 }
 
-.input-unit-2 {
-    position: absolute;
+.unit-1 {
+    top: 66%;
+    right: 42px;
+}
+
+.unit-2 {
     bottom: 20%;
     left: 35%;
-    color: #b9bcde;
-    transform: translateY(-50%);
-    font-style: normal;
-    font-weight: 300;
-    font-size: 14px;
-    line-height: 24px;
-    text-align: right;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }
